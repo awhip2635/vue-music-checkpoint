@@ -4,33 +4,82 @@ import $ from 'jquery'
 
 vue.use(vuex)
 
+var ip = '//localhost:3000'
+
 var store = new vuex.Store({
   state: {
-    myTunes: [],
-    results: []
+    myPlaylist: [],
+    results: [],
+    songTitle: []
   },
   mutations: {
     setResults(state, results){
       state.results = results
+    },
+    setMyPlaylist(state, myPlaylist){
+      state.myPlaylist = myPlaylist
+    },
+    addToMyPlaylist(state, myPlaylist){
+      state.myPlaylist.push({user: payload.user})
+      console.log(myPlaylist)
+    },
+
+    removeTrackFromPlaylist(state, myPlaylist){
+      state.myPlaylist.pop({user: payload.user})
     }
+    
+
   },
   actions: {
     getMusicByArtist({commit, dispatch}, artist) {
+      console.log('working')
       var url = '//bcw-getter.herokuapp.com/?url=';
       var url2 = 'https://itunes.apple.com/search?term=' + artist;
       var apiUrl = url + encodeURIComponent(url2);
-      $.get(apiUrl).then(data=>{
-        commit('setResults', data)
+      $.getJSON(apiUrl).then(data=>{
+        var songList = data.results.map(function (song) {
+                  return {
+                      title: song.trackName,
+                      albumArt: song.artworkUrl60,
+                      artist: song.artistName,
+                      collection: song.collectionName,
+                      price: song.collectionPrice,
+                      preview: song.previewUrl
+                    };
+                })
+        commit('setResults', songList)
       })
     },
-    getMyTunes({commit, dispatch}){
+    
+    
+    getMyPlaylist({commit, dispatch}){
       //this should send a get request to your server to return the list of saved tunes
+     
+      $.get('//localhost:3000/api/playlist').then(data=>{
+        commit('setMyPlaylist', data )
+      })
     },
-    addToMyTunes({commit, dispatch}, track){
+    addToMyPlaylist({commit, dispatch}, track){
+      console.log(track)
       //this will post to your server adding a new track to your tunes
+      $.post('//localhost:3000/api/playlist', track).then(data=>{
+        dispatch('getMyPlaylist')
+      })
     },
-    removeTrack({commit, dispatch}, track){
-      //Removes track from the database with delete
+    removeTrackFromPlaylist({commit, dispatch}, songId){
+      //Removes track from the database with deletef
+      console.log("made it this far")
+          $.ajax({
+                contentType: 'application/json',
+                method: 'DELETE',
+                url: '//localhost:3000/api/playlist/' + songId 
+              })
+                .then(playlist=>{
+                  dispatch('getMyPlaylist')
+                })
+                .fail(err =>{
+                    console.error(err)
+                })
     },
     promoteTrack({commit, dispatch}, track){
       //this should increase the position / upvotes and downvotes on the track

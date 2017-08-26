@@ -19,7 +19,7 @@ Once you get the Itunes service drawing to your itunes component it will be time
 ```javascript
 export default {
   getTracks() { },
-  addTrack() { }, //This guy is already done
+  addTrack() { }, 
   removeTrack() { },
   promoteTrack() { },
   demoteTrack() { }
