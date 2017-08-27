@@ -44,7 +44,8 @@ var store = new vuex.Store({
                       artist: song.artistName,
                       collection: song.collectionName,
                       price: song.collectionPrice,
-                      preview: song.previewUrl
+                      preview: song.previewUrl,
+                      id: song.trackId
                     };
                 })
         commit('setResults', songList)
@@ -66,15 +67,15 @@ var store = new vuex.Store({
         dispatch('getMyPlaylist')
       })
     },
-    removeTrackFromPlaylist({commit, dispatch}, songId){
+    removeTrackFromPlaylist({commit, dispatch}, trackId){
       //Removes track from the database with deletef
       console.log("made it this far")
           $.ajax({
                 contentType: 'application/json',
                 method: 'DELETE',
-                url: '//localhost:3000/api/playlist/' + songId 
+                url: `//localhost:3000/api/playlist/${trackId}` 
               })
-                .then(playlist=>{
+                .then(res=>{
                   dispatch('getMyPlaylist')
                 })
                 .fail(err =>{

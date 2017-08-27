@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-danger btn-block">-</button>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
-        <button @click="removeTrackFromPlaylist(song)" type="button" class="btn btn-danger">Remove Song</button>
+        <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove Song</button>
       </div>
       </div>
 
