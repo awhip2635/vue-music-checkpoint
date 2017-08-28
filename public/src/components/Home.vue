@@ -7,7 +7,7 @@
             <search></search>
         </center>
       </div>
-      <div class="col-xs-4 col-sm-4 col-md-4 panel">
+      <div class="col-xs-4 col-sm-4 col-md-4">
       
           <playlists></playlists>
           
