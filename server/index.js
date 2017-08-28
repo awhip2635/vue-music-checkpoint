@@ -10,7 +10,7 @@ var server = express();
 
 server.use(cors());
 
-server.use(express.static(__dirname + '/public' ))
+server.use(express.static(__dirname + '/public/dist' ))
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended:true}))
 
