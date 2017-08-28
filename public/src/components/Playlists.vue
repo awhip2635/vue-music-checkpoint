@@ -91,6 +91,7 @@
     position: fixed;
     max-height: 800px;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .tasty-jams {
