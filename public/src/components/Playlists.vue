@@ -88,6 +88,7 @@
   }
 
   .playlist-baby {
-    background-attachment: fixed;
+    position: fixed;
+    right: 0;
   }
 </style>
