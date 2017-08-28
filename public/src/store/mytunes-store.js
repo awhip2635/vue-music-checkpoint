@@ -4,7 +4,7 @@ import $ from 'jquery'
 
 vue.use(vuex)
 
-var ip = '//localhost:3000'
+var ip = 'https://vue-music-checkpoint.herokuapp.com/'
 
 var store = new vuex.Store({
   state: {
@@ -59,14 +59,14 @@ var store = new vuex.Store({
     getMyPlaylist({ commit, dispatch }) {
       //this should send a get request to your server to return the list of saved tunes
 
-      $.get('//localhost:3000/api/playlist').then(data => {
+      $.get('https://vue-music-checkpoint.herokuapp.com/api/playlist').then(data => {
         commit('setMyPlaylist', data)
       })
     },
     addToMyPlaylist({ commit, dispatch }, track) {
       console.log(track)
       //this will post to your server adding a new track to your tunes
-      $.post('//localhost:3000/api/playlist', track).then(data => {
+      $.post('https://vue-music-checkpoint.herokuapp.com/api/playlist', track).then(data => {
         dispatch('getMyPlaylist')
       })
     },
@@ -76,7 +76,7 @@ var store = new vuex.Store({
       $.ajax({
         contentType: 'application/json',
         method: 'DELETE',
-        url: `//localhost:3000/api/playlist/${trackId}`
+        url: `https://vue-music-checkpoint.herokuapp.com/api/playlist/${trackId}`
       })
         .then(res => {
           dispatch('getMyPlaylist')
