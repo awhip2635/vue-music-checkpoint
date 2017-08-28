@@ -13,8 +13,8 @@
                 </audio>
         </div>
       <div class="col-xs-2 col-sm-2 col-md-2">
-        <button type="button" class="btn btn-primary btn-block">+</button>
-        <button type="button" class="btn btn-danger btn-block">-</button>
+        <button @click="promoteTrack(song._id)" type="button" class="btn btn-primary btn-block">+</button>
+        <button @click="demoteTrack(song._id)" type="button" class="btn btn-danger btn-block">-</button>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove Song</button>
@@ -51,6 +51,14 @@
       removeTrackFromPlaylist(songId) {
            
         this.$store.dispatch("removeTrackFromPlaylist", songId)
+      },
+
+      promoteTrack(songId) {
+        this.$store.dispatch("promoteTrack", songId)
+      },
+
+      demoteTrack(songId) {
+        this.$store.dispatch("demoteTrack", songId)
       }
     },
     computed: {

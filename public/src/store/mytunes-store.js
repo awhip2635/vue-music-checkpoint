@@ -26,6 +26,9 @@ var store = new vuex.Store({
 
     removeTrackFromPlaylist(state, myPlaylist){
       state.myPlaylist.pop({user: payload.user})
+    },
+    promoteTrack(state, myPlaylist){
+      
     }
     
 
@@ -84,6 +87,11 @@ var store = new vuex.Store({
     },
     promoteTrack({commit, dispatch}, track){
       //this should increase the position / upvotes and downvotes on the track
+      $.get('//localhost:3000/api/playlist').then(myPlaylist=> {
+        for (var i = 0; i < myPlaylist.length; i++) {
+          var song = myPlaylist[i];
+          var previousSong = myPlaylist[i - 1];
+    
     },
     demoteTrack({commit, dispatch}, track){
       //this should decrease the position / upvotes and downvotes on the track
