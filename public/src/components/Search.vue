@@ -8,6 +8,7 @@
                 <button type="submit" class="btn btn-primary" id="get-music-button">Get Music</button>
             </div>
         </form>
+        <br>
         <div v-for="song in results" class="row panel display-search">
             <div class="col-xs-4 col-sm-4 col-md-sm-4">
                 
