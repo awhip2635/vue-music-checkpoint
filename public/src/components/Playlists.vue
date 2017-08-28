@@ -4,7 +4,7 @@
       <center>
         <h1>Your Tasty Jams</h1>
       </center>
-      <div v-for="song in myPlaylist" class="row panel">
+      <div v-for="song in myPlaylist" class="row panel playlist-baby">
         <div class="col-xs-7 col-sm-7 col-md-7">
         <h3>{{song.title}}</h3>
         <h4>{{song.artist}}</h4>
@@ -17,7 +17,7 @@
         <button @click="demoteTrack(song._id)" type="button" class="btn btn-danger btn-block">-</button>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
-        <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove Song</button>
+        <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove</button>
       </div>
       </div>
 
@@ -85,5 +85,9 @@
     background: red;
     min-height: 500px;
     min-width: 45%;
+  }
+
+  .playlist-baby {
+    background-attachment: fixed;
   }
 </style>
