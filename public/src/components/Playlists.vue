@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row playlist-baby">
       <center>
-        <h1>Your Tasty Jams</h1>
+        <h1 class="tasty-jams">Your Tasty Jams</h1>
       </center>
       <div v-for="song in myPlaylist" class="row panel">
         <div class="col-xs-7 col-sm-7 col-md-7">
@@ -89,5 +89,12 @@
 
   .playlist-baby {
     position: fixed;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .tasty-jams {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 </style>
