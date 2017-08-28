@@ -39,8 +39,6 @@ document.addEventListener('play', function (e) {
 body {
   background-image: url('https://other98-agitpopcommunica.netdna-ssl.com/wp-content/uploads/sites/3/2015/06/neil-young-young.jpg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .display-search {
