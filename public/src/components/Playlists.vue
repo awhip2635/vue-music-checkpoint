@@ -89,7 +89,7 @@
 
   .playlist-baby {
     position: fixed;
-    max-height: 400px;
+    max-height: 800px;
     overflow-y: auto;
   }
 
