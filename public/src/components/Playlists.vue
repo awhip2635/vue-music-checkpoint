@@ -1,30 +1,29 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row playlist-baby">
-      <center>
-        <h1 class="tasty-jams">Your Tasty Jams</h1>
-      </center>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+          <center>
+            <h1 class="tasty-jams">Your Tasty Jams</h1>
+          </center>
+          
+        </div>
+      </div>
       <div v-for="song in myPlaylist" class="row panel">
         <div class="col-xs-7 col-sm-7 col-md-7">
-        <h3>{{song.title}}</h3>
-        <h4>{{song.artist}}</h4>
-        <audio controls class="sound-bar">
-                    <source :src="song.preview" class="preview-bar" type="audio/mpeg">
-                </audio>
+          <h3>{{song.title}}</h3>
+          <h4>{{song.artist}}</h4>
+          <audio controls class="sound-bar">
+            <source :src="song.preview" class="preview-bar" type="audio/mpeg">
+          </audio>
         </div>
-      <div class="col-xs-2 col-sm-2 col-md-2">
-        <button @click="promoteTrack(song._id)" type="button" class="btn btn-primary btn-block">+</button>
-        <button @click="demoteTrack(song._id)" type="button" class="btn btn-danger btn-block">-</button>
+        
+        <div class="col-xs-5 col-sm-5 col-md-5">
+          <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove</button>
+        </div>
       </div>
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <button @click="removeTrackFromPlaylist(song._id)" type="button" class="btn btn-danger">Remove</button>
-      </div>
-      </div>
-
-
     </div>
-
-
   </div>
 </template>
 
@@ -49,7 +48,7 @@
       },
 
       removeTrackFromPlaylist(songId) {
-           
+
         this.$store.dispatch("removeTrackFromPlaylist", songId)
       },
 
@@ -66,7 +65,7 @@
         return this.$store.state.myPlaylist
       }
     }
-    
+
   }
 
 </script>

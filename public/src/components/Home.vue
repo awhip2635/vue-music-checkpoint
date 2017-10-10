@@ -2,12 +2,12 @@
   <div class="container-fluid home">
     <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
     <div class="row">
-      <div class="col-xs-8">
-       <center>
+      <div class="col-xs-6 col-sm-6 col-md-8">
+       
             <search></search>
-        </center>
+        
       </div>
-      <div class="col-xs-4 col-sm-4 col-md-4">
+      <div class="col-xs-6 col-sm-6 col-md-4">
       
           <playlists></playlists>
           
