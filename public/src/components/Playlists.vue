@@ -12,8 +12,10 @@
       </div>
       <div v-for="song in myPlaylist" class="row panel">
         <div class="col-xs-7 col-sm-7 col-md-7">
+        <center>
           <h3>{{song.title}}</h3>
           <h4>{{song.artist}}</h4>
+        </center>
           <audio controls class="sound-bar">
             <source :src="song.preview" class="preview-bar" type="audio/mpeg">
           </audio>

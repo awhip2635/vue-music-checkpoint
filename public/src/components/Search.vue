@@ -15,36 +15,33 @@
                 <div class="row">
 
                     <div class="col-xs-4 col-sm-4 col-md-4">
-
-                        <img class="albumArt" :src="song.albumArt">
-
+                        <center>
+                            <img class="albumArt" :src="song.albumArt">
+                        </center>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8">
+                    <center>
                         <h3 class="song-title-text">{{song.title}}</h3>
-                        <h4>Artist: {{song.artist}}</h4>
-                        <p>Collection: {{song.collection}}</p>
+                        <h4>{{song.artist}}</h4>
+                        <p>{{song.collection}}</p>
+                    </center>
 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
                         <audio controls class="sound-bar">
                             <source :src="song.preview" class="preview-bar" type="audio/mpeg">
                         </audio>
 
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4">      
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
                         <button type="button" class="btn btn-primary" @click="addToPlaylist(song)">Add To Playlist</button>
 
                     </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-
-                    </div>
                 </div>
+                
+                   
 
 
 
